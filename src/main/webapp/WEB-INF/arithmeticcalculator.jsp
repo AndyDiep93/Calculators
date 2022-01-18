@@ -1,7 +1,7 @@
 <%-- 
     Document   : arithemticcalculator
     Created on : Jan. 17, 2022, 5:00:23 p.m.
-    Author     : andyd
+    Author     : Andy Diep
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -14,7 +14,7 @@
     <body>
         <h1>Arithmetic Calculator</h1>
         
-        <form action="age" method="post">
+        <form action="arithmetic" method="post">
             <label for="first">First:</label>
             <input type="number" name="firsnum" id="firstnum">
             <br>
@@ -31,6 +31,7 @@
         </form>
         
         <p>Result: ${result}</p>
+        <a href="age">Age Calculator</a>
     
     </body>
 </html>
