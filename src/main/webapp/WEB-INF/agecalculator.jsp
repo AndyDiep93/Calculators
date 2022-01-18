@@ -1,7 +1,7 @@
 <%-- 
     Document   : agecalculator
     Created on : Jan. 15, 2022, 4:35:16 p.m.
-    Author     : andyd
+    Author     : Andy Diep
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
