@@ -1,15 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package ca.sait.calculators.servlets;
 
-import java.io.IOException;
+import java.io.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 
 /**
  *
@@ -18,17 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "ArithmeticCalculatorServlet", urlPatterns = {"/arithmetic"})
 public class ArithmeticCalculatorServlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -40,8 +23,8 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        request.setAttribute("result", "---"); 
+        request.setAttribute("result", "---");
+
         getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp").forward(request, response);
     }
 
@@ -56,37 +39,28 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-       String firstnum = request.getParameter("firstnum");
-       String secondnum = request.getParameter("secondnum");
+        if (request.getParameter("first") != null && request.getParameter("second") != null) {
+            try {
+                //Set variables
+                int number1 = Integer.parseInt(request.getParameter("first"));
+                int number2 = Integer.parseInt(request.getParameter("second"));
 
-       int result;
-       
-    if(firstnum != null && secondnum != null) {
-        
-    try {
-        if (request.getParameter("calculate").equals("add")) {
-            result = Integer.parseInt(firstnum) + Integer.parseInt(secondnum);
-            request.setAttribute("result", result);
-
-        } else if (request.getParameter("calculate").equals("minus")) {
-            result = Integer.parseInt(firstnum) - Integer.parseInt(secondnum);
-            request.setAttribute("result", result);
-
-        } else if (request.getParameter("calculate").equals("multiply")) {
-            result = Integer.parseInt(firstnum) * Integer.parseInt(secondnum);
-            request.setAttribute("result", result);
-
-        } else if (request.getParameter("calculate").equals("divide")) {
-            result = Integer.parseInt(firstnum) / Integer.parseInt(secondnum);
-            request.setAttribute("result", result);
+                //If a operator is clicked after inputting first and second number, a result is displayed
+                if (request.getParameter("calculate").equals("add")) {
+                    request.setAttribute("result", number1 + number2);
+                } else if (request.getParameter("calculate").equals("minus")) {
+                    request.setAttribute("result", number1 - number2);
+                } else if (request.getParameter("calculate").equals("multiply")) {
+                    request.setAttribute("result", number1 * number2);
+                } else if (request.getParameter("calculate").equals("divide")) {
+                    request.setAttribute("result", (double) number1 / number2);
+                }
+                // If no number is inputted in either input, then "invalid" is displayed as a result
+            } catch (Exception ex) {
+                request.setAttribute("result", "Invalid");
+            }
         }
-    
-    } catch (Exception ex) {
-            request.setAttribute("result", "Invalid");
-    }
-        getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp").forward(request, response);
-    }
 
+        getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp").forward(request, response);
     }
 }
