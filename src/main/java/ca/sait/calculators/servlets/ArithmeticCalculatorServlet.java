@@ -80,7 +80,6 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
         } else if (request.getParameter("calculate").equals("divide")) {
             result = Integer.parseInt(firstnum) / Integer.parseInt(secondnum);
             request.setAttribute("result", result);
-        
         }
     
     } catch (Exception ex) {
