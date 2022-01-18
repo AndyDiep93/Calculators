@@ -27,7 +27,6 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
 
         getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp").forward(request, response);
     }
-
     /**
      * Handles the HTTP <code>POST</code> method.
      *
@@ -60,7 +59,6 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
                 request.setAttribute("result", "Invalid");
             }
         }
-
         getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp").forward(request, response);
     }
 }
