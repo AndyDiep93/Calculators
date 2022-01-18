@@ -57,8 +57,6 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-       
-        
        String firstnum = request.getParameter("firstnum");
        String secondnum = request.getParameter("secondnum");
 
@@ -68,27 +66,19 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
         
     try {
         if (request.getParameter("calculate").equals("add")) {
-    
             result = Integer.parseInt(firstnum) + Integer.parseInt(secondnum);
-
             request.setAttribute("result", result);
 
         } else if (request.getParameter("calculate").equals("minus")) {
-            
             result = Integer.parseInt(firstnum) - Integer.parseInt(secondnum);
-
             request.setAttribute("result", result);
 
         } else if (request.getParameter("calculate").equals("multiply")) {
-            
             result = Integer.parseInt(firstnum) * Integer.parseInt(secondnum);
-
             request.setAttribute("result", result);
 
         } else if (request.getParameter("calculate").equals("divide")) {
-            
             result = Integer.parseInt(firstnum) / Integer.parseInt(secondnum);
-
             request.setAttribute("result", result);
         
         }
@@ -96,7 +86,6 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
     } catch (Exception ex) {
             request.setAttribute("result", "Invalid");
     }
-        
         getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp").forward(request, response);
     }
 
