@@ -56,9 +56,7 @@ public class AgeCalculatorServlet extends HttpServlet {
             request.setAttribute("message", "You must enter a number.");
         }
         
-        
         getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp").forward(request, response);
     }
-
 
 }

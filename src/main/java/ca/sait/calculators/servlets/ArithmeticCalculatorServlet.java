@@ -54,6 +54,7 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
                 } else if (request.getParameter("calculate").equals("divide")) {
                     request.setAttribute("result", (double) number1 / number2);
                 }
+                
                 // If no number is inputted in either input, then "invalid" is displayed as a result
             } catch (Exception ex) {
                 request.setAttribute("result", "Invalid");
