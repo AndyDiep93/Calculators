@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <link rel="stylesheet" type="text/css" href="./src/main/webapp/css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/calculator.css">
     </head>
     <body>
         <h1>Arithmetic Calculator</h1>

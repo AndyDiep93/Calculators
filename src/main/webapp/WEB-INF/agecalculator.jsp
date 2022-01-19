@@ -13,14 +13,14 @@
     </head>
     <body>
         <h1>Age Calculator</h1>
-        
+
         <form action="age" method="post">
             <label for="age">Enter your age:</label>
             <input type="number" name="age" id="age">
-            
-            <button type="submit">Submit</button> <!-- You can add h1 tag in button tag and not an input tag-->
+
+            <button type="submit">Submit</button>
         </form>
-        
+
         <p>${message}</p>
         <a href="arithmetic">Arithmetic Calculator</a>
     </body>
